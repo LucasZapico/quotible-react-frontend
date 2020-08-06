@@ -1,12 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import './assets/sass/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {QuotesProvider, EditProvider} from './context/index'
 
 ReactDOM.render(
   <React.StrictMode>
+    <QuotesProvider>
+      <EditProvider>
     <App />
+    </EditProvider>
+    </QuotesProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );

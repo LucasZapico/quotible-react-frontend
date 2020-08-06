@@ -1,0 +1,232 @@
+/*************
+**
+**  Variables and Imports
+************/
+@import url('https://fonts.googleapis.com/css2?family=Trykker&display=swap');
+
+/********
+//  TYPOGRAPHY 
+*********/
+
+// HEADER 
+$header-font-family: 'Trykker',
+serif;
+$header-font-size: 18px;
+$header-font-size-modile: 18px;
+$header-font-size: 18px;
+$type-scaler: 1.25;
+$header-weight: 400;
+$header-line-height: 1.5;
+$header-color: $color-c;
+// BODY 
+
+// Type hierarchy scaler
+$body-font-size: 18px;
+$base-font-family: 'Trykker',
+serif;
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+    font-family: $header-font-family;
+    line-height: $header-line-height;
+    margin: 0px;
+    color: $color-c;
+    font-weight: $header-weight;
+}
+
+p,
+ul,
+ol,
+dl,
+figure,
+blockquote,
+table,
+hr {
+    line-height: $header-line-height;
+}
+
+h1,
+.h1 {
+    font-size: $header-font-size-modile * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h2,
+.h2 {
+    font-size: $header-font-size-modile * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h3,
+.h3 {
+    font-size: $header-font-size-modile * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h4,
+.h4 {
+    font-size: $header-font-size-modile * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h5,
+.h5 {
+    font-size: $header-font-size-modile * $type-scaler * $type-scaler;
+}
+
+
+em {
+    font-style: italic;
+}
+
+blockquote {
+    background-color: #fbfbfb;
+    margin: 0px;
+    padding: 0.5rem;
+    border-left: darken(#fbfbfb, 10%) solid 10px;
+}
+
+pre {
+    font-family: 'Courier 10 Pitch', Courier, monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+}
+
+code {
+    font-family: Monaco, Consolas, 'Andale Mono', 'DejaVu Sans Mono',
+        monospace;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre;
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -o-pre-wrap;
+    background: #faf8f0;
+    color: #333333;
+}
+
+a {
+    color: #333333;
+}
+
+@media screen and (min-width: 800px) {
+    h1,
+.h1 {
+    font-size: $header-font-size  * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h2,
+.h2 {
+    font-size: $header-font-size  * $type-scaler * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h3,
+.h3 {
+    font-size: $header-font-size  * $type-scaler * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h4,
+.h4 {
+    font-size: $header-font-size  * $type-scaler * $type-scaler * $type-scaler;
+}
+
+h5,
+.h5 {
+    font-size: $header-font-size  * $type-scaler * $type-scaler;
+}
+}
+
+/*************************
+// Element Max Reading Width
+**************************/
+
+
+// breakpoints
+@media screen and (min-width: 0px) and (max-width: 768px) {
+
+  }
+  
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    
+    .char-100 {
+      max-width: 620px;
+    }
+    p,
+    li,
+    input,
+    textarea,
+    .char-80 {
+      max-width: 520px;
+    }
+    .char-50 {
+      max-width: 320px;
+    }
+  }
+  
+  @media screen and (min-width: 1024px) and (max-width: 1440px) {
+    
+    .char-100 {
+      max-width: 800px;
+    }
+    p,
+    li,
+    input,
+    textarea,
+    blockquote,
+    code,
+    .char-80 {
+      max-width: 700px;
+    }
+    .char-50 {
+      max-width: 410px;
+    }
+  }
+  
+  @media screen and (min-width: 1440px) and (max-width: 2200px) {
+    
+    .char-100 {
+      max-width: 1070px;
+    }
+    p,
+    li,
+    input,
+    textarea,
+    blockquote,
+    code,
+    .char-80 {
+      max-width: 900px;
+    }
+    .char-50 {
+      max-width: 550px;
+    }
+  }
+  
+  @media screen and (min-width: 2200px) and (max-width: 2800px) {
+    
+    .char-100 {
+      max-width: 1600px;
+    }
+    p,
+    li,
+    input,
+    textarea,
+    blockquote,
+    code,
+    .char-80 {
+      max-width: 1340px;
+    }
+    .char-50 {
+      max-width: 820px;
+    }
+  }
+  

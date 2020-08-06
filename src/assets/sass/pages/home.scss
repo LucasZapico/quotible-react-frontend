@@ -1,0 +1,30 @@
+.page {
+    &--home {
+        padding-top: 4rem;
+    }
+    
+}   
+.home {
+    
+    &--quote {
+        background-color: $color-e;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 4rem;
+        padding-bottom: 4rem;
+        border-radius: 10px;;
+    }
+}
+
+@media screen and (min-width: 800px ){
+    .home {
+        &--quote {
+            background-color: $color-e;
+            padding-left: 3rem;
+            padding-right: 3rem;
+            padding-top: 4rem;
+            padding-bottom: 4rem;
+            border-radius: 20px;;
+        }
+    }   
+}
