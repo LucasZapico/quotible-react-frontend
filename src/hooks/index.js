@@ -3,6 +3,7 @@ import moment from 'moment'
 import axios from 'axios'
 
 export const useQuotes = () => {
+    console.log('api url', process.env.REACT_API_BASE_URL)
     const [quotes, setQuotes] = useState([])
     useEffect( () => {
         axios.get(`${process.env.REACT_API_BASE_URL}/api/quotes`).then((res) => {
