@@ -60,8 +60,6 @@ const AddQuote = () => {
     setShowAddQuote(!showAddQuote);
   };
   const handleDelete = (e) => {
-    
-    console.log('delete')
     axios
       .delete(`${process.env.REACT_API_BASE_URL}/api/quotes/${newQuote._id}`)
       .then((res) => {
