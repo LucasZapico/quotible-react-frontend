@@ -54,14 +54,14 @@ const AddQuote = () => {
     
     console.log('submit')
     axios
-      .post(`${process.env.REACT_API_BASE_URL}/api/quotes`, newQuote)
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/quotes`, newQuote)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
     setShowAddQuote(!showAddQuote);
   };
   const handleDelete = (e) => {
     axios
-      .delete(`${process.env.REACT_API_BASE_URL}/api/quotes/${newQuote._id}`)
+      .delete(`${process.env.REACT_APP_API_BASE_URL}/api/quotes/${newQuote._id}`)
       .then((res) => {
         setQuotes([...quotes])
         console.log(res)
