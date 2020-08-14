@@ -29,6 +29,8 @@ const AllQuotes = () => {
     console.log(displayQuotes);
   }, [displayQuotes]);
 
+  
+
   const handleEdit = (id) => {
     console.log("edit", id);
     const toEdit = quotes.filter((q) => q._id === id);
