@@ -51,13 +51,13 @@ const AddQuote = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    
-    console.log('submit')
-    axios
+    if (newQuote.quote.length > 5 ){
+      axios
       .post(`${process.env.REACT_APP_API_BASE_URL}/api/quotes`, newQuote)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
-    setShowAddQuote(!showAddQuote);
+      setShowAddQuote(!showAddQuote);
+    }
   };
   const handleDelete = (e) => {
     axios
