@@ -10,6 +10,11 @@ export const useQuotes = () => {
             const orderedByDate = res.data.sort((a,b) =>   moment(b.created) - moment(a.created))
             if(JSON.stringify(quotes) !== JSON.stringify(orderedByDate)) {
                 setQuotes(orderedByDate)
+                setTimeout(() => {
+                    console.log('quotes applied')
+                    
+                }, 5000)
+                
             }
             
         }).catch(err => console.log(err.response))    

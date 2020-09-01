@@ -2,7 +2,7 @@
 
 ## Todo 
 
-- [ ] loader 
+- [ ] loader (message about heroku deploy)
 - [ ] search
 - [ ] form validation empty quote 
 - [ ] dev and prod env vars 

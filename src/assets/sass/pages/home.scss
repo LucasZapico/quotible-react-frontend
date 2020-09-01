@@ -1,11 +1,12 @@
 .page {
     &--home {
         padding-top: 4rem;
+        position: relative;
+        height: 100%;
     }
     
 }   
 .home {
-    position: relative;
     &--quote {
         background-color: $color-e;
         padding-left: 1rem;
