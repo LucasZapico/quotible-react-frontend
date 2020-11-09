@@ -1,3 +1,24 @@
+<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
+<p align="center">
+  <a href="https://quotible-react-frontend.herokuapp.com/">
+    <img alt="quotible" src="./src/assets/img/quotible-mark.svg" width="60" />
+  </a>
+</p>
+<h1 align="center">
+  Lucas's Dev Portfolio 
+</h1>
+
+### Frontend
+
+[Quotible frontend](https://quotible-react-frontend.herokuapp.com/)
+[Quotible frontend repo](https://github.com/LucasZapico/quotible-react-frontend)
+
+### Backend
+
+[Quotible backend API](https://quotible-backend.herokuapp.com/)
+[Quotible backend API repo](https://github.com/LucasZapico/quotible-backend)
+[Quotible backend API Swagger](https://quotible-backend.herokuapp.com/api-docs/#)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
