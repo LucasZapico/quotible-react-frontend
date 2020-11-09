@@ -1,0 +1,90 @@
+/***
+**
+** BreakPoints 
+**
+**
+***/
+
+$media-small : 750px;
+$media-med : 960px;
+$media-large : 1200px;
+$media-xlarge: 1400px;
+
+
+
+/***
+**
+** COLOR
+**
+**
+***/
+/***
+** Core Colors
+***/
+$color-pri : #F2F0EE;
+$color-sec : #333333;
+$color-tri : #7FA586;
+$color-quad: #874D4D;
+
+
+/***
+** Grey Scale
+***/
+
+$color-light : #FFFFFF;
+$color-grey-1: #F4F4F5;
+$color-grey-2: #EBEBEC;
+$color-grey-3: #D7D7D7;
+$color-grey-4: #ACACAF;
+$color-grey-5: #7F7F84;
+$color-grey-6: #525254;
+$color-grey-7: #38383A;
+$color-grey-8: #1D1D1E;
+$color-dark : #0A0A0A;
+
+/***
+** Typography Colors 
+***/
+
+$pri-type-color: $color-grey-8;
+$sec-type-color: $color-grey-7;
+
+/***
+** Background Colors 
+***/
+
+// Light theme
+$bg-pri: $color-pri;
+$bg-sec: $color-tri;
+
+
+/***
+**
+** TYPOGRAPHY
+**
+**
+***/
+
+//----display------//
+//----headers------//
+@import url('https://fonts.googleapis.com/css2?family=Trykker&display=swap');
+//----body------//
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+
+$type-base-size: 18px;
+
+// body variables 
+$base-family : 'Noto Sans JP',
+sans-serif;
+$base-line-height: 1.3;
+$base-weight : 500;
+
+// header variables 
+$header-family : 'Trykker',
+sans-serif;
+$header-base-size : $type-base-size;
+$header-line-height: $base-line-height;
+$header-weight : 400;
+$type-scaler : 1.33;
+
+$display-family: $header-family;

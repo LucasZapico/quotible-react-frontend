@@ -1,173 +1,171 @@
-import React, { useState, useEffect, useLayoutEffect } from "react";
-import { IoIosAdd, IoIosClose } from "react-icons/io";
-import moment from "moment";
-import axios from "axios";
-import { useEditValue, useQuotesValue } from "../context";
+import React, { useState, useEffect, useRef } from 'react'
+import { IoIosAdd, IoIosClose, IoIosSave } from 'react-icons/io'
+import moment from 'moment'
+import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+import { useEditValue, useQuotesValue } from '../context'
+import { IoIosUnlock, IoIosLock, IoIosTrash } from 'react-icons/io'
+import { reSizeTextArea } from '../helpers'
+import { useForm } from 'react-hook-form'
 
-const quoteSchema = {
-  quote: "",
-  author: "",
+const dataSchema = {
+  quote: '',
+  author: '',
   categories: [],
-  notes: "",
+  tags: [],
   links: [],
   like: 0,
-  created: moment().date(),
-};
+  notes: '',
+  isPrivate: false,
+}
 
 const AddQuote = () => {
-  const [showAddQuote, setShowAddQuote] = useState(false);
-  const [newQuote, setNewQuote] = useState(quoteSchema);
-  const { quotes, setQuotes } = useQuotesValue()
-  const { quoteForEdit, setQuoteForEdit } = useEditValue();
+  let history = useHistory()
+  const { register, handleSubmit, watch, errors } = useForm()
+  const [newQuote, setNewQuote] = useState(dataSchema)
+  const [isPrivate, setIsPrivate] = useState(false)
+  const [save, setSave] = useState(false)
+  const textArea = useRef(null)
 
-  useLayoutEffect(() => {
-    console.log("new quote test", newQuote);
-  }, [newQuote]);
-
-  useEffect(() => {
-    console.log("quote for edit", quoteForEdit);
-    if (quoteForEdit) {
-      setNewQuote((prev) => {
-        return quoteForEdit;
-      });
-      setShowAddQuote(!showAddQuote);
-      console.log("new quote", newQuote);
+  // todo: remove duplicates
+  const parseCategories = cat => {
+    const cats = cat.split(',')
+    if (cats.length > 1) {
+      const catsClean = cats.map(c =>
+        c.toLowerCase().trim().replace(' ', '-')
+      )
+      return catsClean
     }
-  }, [quoteForEdit]);
-
-  const handleChange = (e) => {
-    const key = e.target.name;
-    if (key === "categories") {
-      const cat = handleCategories(e.target.value);
-      setNewQuote({ ...newQuote, [key]: cat });
-    } else {
-      setNewQuote({ ...newQuote, [key]: e.target.value });
-    }
-  };
-
-  const handleCategories = (str) => {
-    return str.trim().split(",");
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    if (newQuote.quote.length > 5 ){
-      axios
-      .post(`${process.env.REACT_APP_API_BASE_URL}/api/quotes`, newQuote)
-      .then((res) => console.log(res))
-      .catch((err) => console.log(err));
-      setShowAddQuote(!showAddQuote);
-    }
-  };
-  const handleDelete = (e) => {
-    axios
-      .delete(`${process.env.REACT_APP_API_BASE_URL}/api/quotes/${newQuote._id}`)
-      .then((res) => {
-        setQuotes([...quotes])
-        console.log(res)
-      })
-      .catch((err) => console.log(err));
-      setShowAddQuote(!showAddQuote);
+    const newCat = cats[0].toLowerCase().trim().replace(' ', '-')
+    return newCat
   }
-  return showAddQuote && newQuote ? (
-    <div className="add-quote--modal char-100">
-      <div
-        className="add-quote--modal__hide icon--default"
-        onClick={() => 
-          {
-            setShowAddQuote(!showAddQuote)
-            
-          }
+
+  const handleAddQuote = data => {
+    data.categories = parseCategories(data.categories)
+
+    axios
+      .post(`${process.env.REACT_APP_API_BASE_URL}/api/quotes/`, {
+        data: data,
+      })
+      .then(res => {
+        console.log('update', res)
+        if (res.status === 200) {
+          history.push('/')
         }
-      >
-        <IoIosClose />
-      </div>
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }
 
-      <form onSubmit={(e) => handleSubmit(e)} className="add-quote--container">
-        <textarea
-          autoComplete="off"
-          aria-label="quote"
-          type="text"
-          value={newQuote.quote || ""}
-          name="quote"
-          onClick={(e) => {
-            console.log("value", e.target.value);
-            console.log("new quote quote", newQuote.quote);
-          }}
-          onChange={(e) => handleChange(e)}
-        ></textarea>
-        <input
-          autoComplete="off"
-          aria-label="author"
-          type="text"
-          placeholder="author"
-          value={newQuote.author || ""}
-          name="author"
-          onChange={(e) => handleChange(e)}
-        />
-        <input
-          autoComplete="off"
-          aria-label="categories"
-          type="text"
-          placeholder="categories"
-          value={newQuote.categories || []}
-          name="categories"
-          onChange={(e) => handleChange(e)}
-        />
-        <textarea
-          autoComplete="off"
-          aria-label="notes"
-          type="text"
-          placeholder="notes"
-          value={newQuote.notes || ""}
-          name="notes"
-          onChange={(e) => handleChange(e)}
-        ></textarea>
-        {/* <input
-          autoComplete="off"
-          aria-label="context"
-          type="text"
-          placeholder="context"
-          value={newQuote.context || ""}
-          name="context"
-          onChange={(e) => handleChange(e)}
-        /> */}
-        <div className="add-quote--actions">
-          {/* <input
-            autoComplete="off"
-            aria-label="date-created"
-            type="date"
-            value={newQuote.created || ""}
-            name="created"
-            onChange={(e) => handleChange(e)}
-          /> */}
+  // todo: look at for refactor.. resizeTextArea hook ??
+  // useEffect(() => {
+  //   if (textArea.current !== null) {
+  //     reSizeTextArea(textArea)
+  //   }
+  //   return () => {}
+  // }, [])
+
+  return (
+    <div className="page add-quote  container__content">
+      <form onSubmit={handleSubmit(handleAddQuote)}>
+        <div className="card quote editable margin__y--l">
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <label className="input__label">Quote</label>
+              <textarea
+                className="input__input"
+                autoComplete="off"
+                aria-label="quote"
+                name="quote"
+                defaultValue={newQuote.quote}
+                ref={e => {
+                  register(e, { required: true, min: 10, max: 1000 })
+                  textArea.current = e
+                }}
+              />
+              {errors.quote && <span>This field is required</span>}
+            </div>
+          </div>
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <label className="input__label">Author</label>
+              <input
+                autoComplete="off"
+                className="input__input"
+                name="author"
+                ref={register({ required: true })}
+                defaultValue={newQuote.author}
+              />
+              {errors.author && <span>This field is required</span>}
+            </div>
+          </div>
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <label className="input__label">Categories</label>
+              <input
+                autoComplete="off"
+                className="input__input"
+                name="categories"
+                ref={register}
+                defaultValue={newQuote.categories}
+              />
+            </div>
+          </div>
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <label className="input__label">tags</label>
+              <input
+                autoComplete="off"
+                className="input__input"
+                name="tags"
+                ref={register}
+                defaultValue={newQuote.tags}
+              />
+            </div>
+          </div>
+          {/* todo: add links feature */}
+
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <label className="input__label">Notes</label>
+              {/* todo: enable markdown support */}
+              <textarea
+                autoComplete="off"
+                className="input__input"
+                aria-label="notes"
+                name="notes"
+                ref={register}
+                defaultValue={newQuote.notes}
+              />
+            </div>
+          </div>
+          <div className="margin__bottom--m">
+            <div className="input__container">
+              <div
+                defaultValue={isPrivate}
+                className="input container private"
+                onClick={() => setIsPrivate(!isPrivate)}
+              >
+                {isPrivate ? <IoIosLock /> : <IoIosUnlock />}
+                <input
+                  className="input private"
+                  type="checkbox"
+                  name="private"
+                  ref={register}
+                />
+              </div>
+            </div>
+          </div>
           <input
-            autoComplete="off"
-            aria-label="add quote"
-            className="add-quote--submit btn"
+            className="btn btn__primary--light"
             type="submit"
-            name="submit"
-          />
-        {setNewQuote.quote !== '' ? 
-          <button name="delete" className="btn" onClick={(e) => handleDelete(e)}>
-            Delete
-          </button> : undefined }        
+            value="save"
+          ></input>
         </div>
-        
       </form>
-
     </div>
-  ) : (
-    <div
-      className="add-quote icon--default"
-      onClick={() => {
-        setNewQuote(quoteSchema);
-        setShowAddQuote(!showAddQuote);
-      }}
-    >
-      <IoIosAdd />
-    </div>
-  );
-};
+  )
+}
 
-export default AddQuote;
+export default AddQuote

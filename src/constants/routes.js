@@ -1,6 +1,9 @@
-export const HOME = '/';
-export const LANDING = '/landing';
-export const SIGN_IN = '/sign-in';
-export const SIGN_UP = '/sign-up';
-export const ALL_QUOTES = '/all-quotes';
-export const ACCOUNT = '/account';
+export const USER_HOME = '/'
+export const ADD_QUOTE = '/add-quote'
+export const HOME = '/'
+export const AUTH = '/auth'
+export const LOG_IN = '/login'
+export const SIGN_UP = '/signup'
+export const QUOTES = '/quotes'
+export const ACCOUNT = '/account'
+export const STYLE_GUIDE = '/style-guide'

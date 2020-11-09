@@ -1,0 +1,125 @@
+@media screen and (min-width: 100px) {
+
+  .color {
+    .core {
+      &__ratio {
+        display: flex;
+
+
+        &>div {
+          height: 200px;
+        }
+
+        .pri {
+          width: 40%;
+          background-color: $color-pri;
+        }
+
+        .sec {
+          width: 30%;
+          background-color: $color-sec;
+        }
+
+        .ter {
+          width: 20%;
+          background-color: $color-tri;
+        }
+
+        .quad {
+          width: 10%;
+          background-color: $color-quad;
+        }
+      }
+    }
+
+    .grey-scale {
+      display: flex;
+
+
+      &>div {
+        height: 100px;
+        flex-basis: 10%;
+      }
+
+      .bg-light {
+
+        flex-basis: 10%;
+        background-color: $color-light;
+      }
+
+      .bg-grey-1 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-1;
+      }
+
+      .bg-grey-2 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-2;
+      }
+
+      .bg-grey-3 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-3;
+      }
+
+      .bg-grey-4 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-4;
+      }
+
+      .bg-grey-5 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-5;
+      }
+
+      .bg-grey-6 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-6;
+      }
+
+      .bg-grey-7 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-7;
+      }
+
+      .bg-grey-8 {
+
+        flex-basis: 10%;
+        background-color: $color-grey-8;
+      }
+
+      .bg-dark {
+
+        flex-basis: 10%;
+        background-color: $color-dark;
+      }
+    }
+
+  }
+
+}
+
+// 700px and up
+@media screen and (min-width: $media-small) {}
+
+// 960px 
+@media screen and (min-width: $media-med) {}
+
+@media screen and (min-width: $media-large) {
+  .container {
+    &__content {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xlarge) {}

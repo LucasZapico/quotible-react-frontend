@@ -1,0 +1,77 @@
+html,
+body,
+.app {
+  font-family: $base-family;
+  background-color: $color-light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+main {
+  min-height: 90vh;
+  padding-top: 100px;
+  background-color: $color-light;
+}
+
+.page {
+  padding-top: 200px;
+}
+
+/***
+** Containers 
+***/
+
+.container {
+  &.main {}
+}
+
+/***
+** Section 
+***/
+
+.section {
+  padding-top: $space-atom * $space-lg;
+  padding-bottom: $space-atom * $space-lg;
+}
+
+
+
+
+@media screen and (min-width: 100px) {
+  .section {
+    &.quotes {
+      display: grid;
+      gap: $space-atom;
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// 700px and up
+@media screen and (min-width: $media-small) {}
+
+// 960px 
+@media screen and (min-width: $media-med) {
+  .section {
+    &.quotes {
+
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+
+
+    }
+  }
+}
+
+@media screen and (min-width: $media-large) {
+  .container {
+    &__content {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+  }
+}
+
+@media screen and (min-width: $media-xlarge) {}
