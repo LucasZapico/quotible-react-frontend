@@ -5,7 +5,7 @@
   </a>
 </p>
 <h1 align="center">
-Quotible
+  Quotible
 </h1>
 
 ## About this project
