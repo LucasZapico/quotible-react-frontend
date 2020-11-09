@@ -1,0 +1,94 @@
+@media screen and (min-width: 100px) {
+  .card {
+    background-color: $color-pri;
+    border-radius: 15px;
+    display: block;
+    padding: $space-atom * $sm;
+
+    &.featured {
+      background-color: $color-tri;
+      min-height: 400px;
+
+      .quote {
+        &__body {
+          @include h3;
+        }
+
+        &__author {
+          @include h5;
+        }
+      }
+    }
+
+    &.editable.quote {
+      cursor: pointer;
+
+      &.editor {
+        position: absolute;
+      }
+
+      .input {
+        &.container.private {
+          position: relative;
+          height: 2rem;
+          width: 2rem;
+        }
+
+        &.private {
+          position: absolute;
+          height: 2rem;
+          top: 0px;
+          left: 0px;
+          width: 2rem;
+
+          &[type="checkbox"] {
+            opacity: 0;
+          }
+
+          // z-index: -1;
+          svg {
+            font-size: 2rem;
+            fill: $color-grey-6;
+          }
+        }
+
+        &__container {
+          display: flex;
+          flex-direction: column;
+
+        }
+
+        &__private {}
+
+        &__label {
+          @include body__small;
+          color: $color-grey-6;
+        }
+
+        &__input {
+          background-color: $color-pri;
+          border: transparent;
+          witdh: 100%;
+
+          &:hover {}
+
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+
+
+}
+
+// 700px and up
+@media screen and (min-width: $media-small) {}
+
+// 960px 
+@media screen and (min-width: $media-med) {}
+
+@media screen and (min-width: $media-large) {}
+
+@media screen and (min-width: $media-xlarge) {}

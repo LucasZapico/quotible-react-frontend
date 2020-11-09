@@ -1,44 +1,33 @@
-.page {
-    &--home {
-        padding-top: 4rem;
-        position: relative;
-        height: 100%;
-    }
-    
-}   
-.home {
-    &--quote {
-        background-color: $color-e;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        padding-top: 4rem;
-        padding-bottom: 4rem;
-        border-radius: 10px;;
-    }
-    &--background {
-        background-image: url(../../img/home-background.png);
-        position: fixed;
-        z-index: -1;
-        top: 0px;
-        height: 100vh;
-        width: 100vw;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: center;
-        
+@media screen and (min-width: 100px) {
 
+  .page {
+
+    &.home,
+    &.home-auth,
+    &.add-quote {
+      padding-top: 4rem;
+      position: relative;
+      height: 100%;
+      padding-left: $space-atom * $sm;
+      padding-right: $space-atom * $sm;
     }
+  }
 }
 
-@media screen and (min-width: 800px ){
-    .home {
-        &--quote {
-            background-color: $color-e;
-            padding-left: 3rem;
-            padding-right: 3rem;
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            border-radius: 20px;;
-        }
-    }   
+// 700px and up
+@media screen and (min-width: $media-small) {}
+
+// 960px 
+@media screen and (min-width: $media-med) {}
+
+@media screen and (min-width: $media-large) {
+  .container {
+    &__content {
+      width: 100%;
+      max-width: 1200px;
+      margin: auto;
+    }
+  }
 }
+
+@media screen and (min-width: $media-xlarge) {}

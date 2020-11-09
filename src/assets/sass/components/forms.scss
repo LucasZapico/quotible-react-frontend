@@ -8,10 +8,46 @@ input[type='url'],
 input[type='password'],
 textarea {
   border: solid 1px #c2c2c2;
+  font-family: $base-family;
   border-radius: 5px;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  
+
+}
+
+.form {
+
+  &.login,
+  &.signup {
+    form {
+      max-width: 400px;
+      margin: auto;
+      display: flex;
+      flex-direction: column;
+
+      input {
+        border: none;
+        background-color: transparent;
+
+        &:hover {}
+
+        &:focus {
+          outline: none;
+        }
+      }
+
+      .input {
+        &__container {
+          border-bottom: solid 1px $color-tri;
+        }
+      }
+    }
+
+  }
+
+  &.login {}
+
+  &.signup {}
 }

@@ -1,0 +1,368 @@
+/***
+** space vars
+***/
+$space-atom: 1rem;
+$xs: 0.4;
+$sm: 0.8;
+$md: 2;
+$lg: 4;
+$xl: 8;
+
+$space-lg: $lg;
+$space-sm: $sm;
+$space-md: $md;
+$space-xl: $xl;
+
+.icon {
+  &--sm {}
+
+  &--m {
+    font-size: 1.5rem;
+  }
+}
+
+@mixin spacingUtils($space-atom, $sm, $md, $lg, $xl) {
+  .margin {
+    &__all {
+      margin: $space-atom;
+
+      &--xs {
+        margin: $space-atom * $xs;
+      }
+
+      &--sm {
+        margin: $space-atom * $sm;
+      }
+
+      &--m {
+        margin: $space-atom * $md;
+      }
+
+      &--l {
+        margin: $space-atom * $lg;
+      }
+    }
+
+    &__y {
+      margin-top: $space-atom;
+      margin-bottom: $space-atom;
+
+      &--xs {
+        margin-top: $space-atom * $xs;
+        margin-bottom: $space-atom * $xs;
+      }
+
+      &--sm {
+        margin-top: $space-atom * $sm;
+        margin-bottom: $space-atom * $sm;
+      }
+
+      &--m {
+        margin-top: $space-atom * $md;
+        margin-bottom: $space-atom * $md;
+      }
+
+      &--l {
+        margin-top: $space-atom * $lg;
+        margin-bottom: $space-atom * $lg;
+      }
+    }
+
+    &__x {
+      margin-left: $space-atom;
+      margin-right: $space-atom;
+
+      &--xs {
+        margin-left: $space-atom * $xs;
+        margin-right: $space-atom * $xs;
+      }
+
+      &--sm {
+        margin-left: $space-atom * $sm;
+        margin-right: $space-atom * $sm;
+      }
+
+      &--m {
+        margin-left: $space-atom * $md;
+        margin-right: $space-atom * $md;
+      }
+
+      &--l {
+        margin-left: $space-atom * $lg;
+        margin-right: $space-atom * $lg;
+      }
+    }
+
+    &__top {
+      margin-top: $space-atom;
+
+      &--xs {
+        margin-top: $space-atom * $xs;
+
+      }
+
+      &--sm {
+        margin-top: $space-atom * $sm;
+
+      }
+
+      &--m {
+        margin-top: $space-atom * $md;
+      }
+
+      &--l {
+        margin-top: $space-atom * $lg;
+      }
+    }
+
+    &__bottom {
+      margin-bottom: $space-atom;
+
+      &--xs {
+
+        margin-bottom: $space-atom * $xs;
+      }
+
+      &--sm {
+
+        margin-bottom: $space-atom * $sm;
+      }
+
+      &--m {
+        margin-bottom: $space-atom * $md;
+      }
+
+      &--l {
+        margin-bottom: $space-atom * $lg;
+      }
+    }
+
+    &__left {
+      margin-left: $space-atom;
+
+      &--xs {
+        margin-left: $space-atom * $xs;
+
+      }
+
+      &--sm {
+        margin-left: $space-atom * $sm;
+
+      }
+
+      &--m {
+        margin-left: $space-atom * $md;
+      }
+
+      &--l {
+        margin-left: $space-atom * $lg;
+      }
+    }
+
+    &__right {
+      margin-right: $space-atom;
+
+      &--xs {
+
+        margin-right: $space-atom * $xs;
+      }
+
+      &--sm {
+
+        margin-right: $space-atom * $sm;
+      }
+
+      &--m {
+        margin-right: $space-atom * $md;
+      }
+
+      &--l {
+        margin-right: $space-atom * $lg;
+      }
+    }
+  }
+
+  .padding {
+    &__kill {
+      padding: 0px;
+    }
+
+    &__all {
+      padding: $space-atom;
+    }
+
+    &__y {
+      padding-top: $space-atom;
+      padding-bottom: $space-atom;
+    }
+
+    &__x {
+      padding-left: $space-atom;
+      padding-right: $space-atom;
+    }
+
+    &__top {
+      padding-top: $space-atom;
+    }
+
+    &__bottom {
+      padding-bottom: $space-atom;
+    }
+
+    &__left {
+      padding-left: $space-atom;
+    }
+
+    &__right {
+      padding-right: $space-atom;
+    }
+  }
+
+  .padding {
+    &__all {
+      &--m {
+        padding: $space-atom * $md;
+      }
+
+      &--l {
+        padding: $space-atom * $lg;
+      }
+    }
+
+    &__y {
+      &--m {
+        padding-top: $space-atom * $md;
+        padding-bottom: $space-atom * $md;
+      }
+
+      &--l {
+        padding-top: $space-atom * $lg;
+        padding-bottom: $space-atom * $lg;
+      }
+    }
+
+    &__x {
+      &--m {
+        padding-left: $space-atom * $md;
+        padding-right: $space-atom * $md;
+      }
+
+      &--l {
+        padding-left: $space-atom * $lg;
+        padding-right: $space-atom * $lg;
+      }
+    }
+
+    &__top {
+      &--m {
+        padding-top: $space-atom * $md;
+      }
+
+      &--l {
+        padding-top: $space-atom * $lg;
+      }
+    }
+
+    &__bottom {
+      &--m {
+        padding-bottom: $space-atom * $md;
+      }
+
+      &--l {
+        padding-bottom: $space-atom * $lg;
+      }
+    }
+
+    &__left {
+      &--m {
+        padding-left: $space-atom * $md;
+      }
+
+      &--l {
+        padding-left: $space-atom * $lg;
+      }
+    }
+
+    &__right {
+      &--m {
+        padding-right: $space-atom * $md;
+      }
+
+      &--l {
+        padding-right: $space-atom * $lg;
+      }
+    }
+  }
+}
+
+.center {
+  display: block;
+  margin: auto;
+
+  &__text {
+    text-align: center;
+  }
+}
+
+.z-1 {
+  z-index: 1;
+}
+
+.z-2 {
+  z-index: 2;
+}
+
+.z-3 {
+  z-index: 3;
+}
+
+// 100px and up
+@media screen and (min-width: 100px) {
+  $space-atom: 1rem;
+  $sm: 0.8;
+  $md: 2;
+  $lg: 4;
+  $xl: 8;
+  @include spacingUtils($space-atom, $sm, $md, $lg, $xl);
+}
+
+// 700px and up
+@media screen and (min-width: $media-small) {
+  $space-atom: 1rem;
+  $sm: 0.8;
+  $md: 2;
+  $lg: 4;
+  $xl: 8;
+
+  @include spacingUtils($space-atom, $sm, $md, $lg, $xl);
+}
+
+// 960px
+@media screen and (min-width: $media-med) {
+  $space-atom: 1rem;
+  $sm: 0.8;
+  $md: 2;
+  $lg: 4;
+  $xl: 8;
+
+  @include spacingUtils($space-atom, $sm, $md, $lg, $xl);
+}
+
+@media screen and (min-width: $media-large) {
+  $space-atom: 1rem;
+  $sm: 0.8;
+  $md: 2;
+  $lg: 4;
+  $xl: 8;
+  @include spacingUtils($space-atom, $sm, $md, $lg, $xl);
+}
+
+@media screen and (min-width: $media-xlarge) {
+  $space-atom: 1rem;
+  $sm: 0.8;
+  $md: 2;
+  $lg: 4;
+  $xl: 8;
+
+  @include spacingUtils($space-atom, $sm, $md, $lg, $xl);
+}

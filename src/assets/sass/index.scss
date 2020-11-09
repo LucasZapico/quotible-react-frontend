@@ -1,17 +1,21 @@
-@import "./base.scss";
+@import "./base";
+@import "./variables";
+@import "./typography";
+@import "./utilities";
+@import "./layout";
 
-// color 
-@import "./color.scss";
+//-------------------//
+@import "./button-links-cta";
 
-// typography
-@import "./typography.scss";
+//----Components------//
+@import "./components/footer";
+@import "./components/nav";
+@import "./components/forms";
+@import "./components/card";
+@import "./components/search";
 
-@import "./buttons-links.scss";
+//----Pages------//
+@import "./pages/style-guide";
+@import "./pages/home";
 
 @import "./App.scss";
-
-@import "./components/forms";
-
-
-// layout 
-@import "./pages/home.scss";

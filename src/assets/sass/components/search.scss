@@ -1,0 +1,22 @@
+.categories {
+  display: flex;
+  justify-content: flex-start;
+
+}
+
+.category {
+  cursor: pointer;
+  padding-left: $space-atom * $xs;
+  padding-right: $space-atom * $xs;
+  border-radius: 30px;
+  padding-top: $space-atom * $xs;
+  padding-bottom: $space-atom * $xs;
+  background-color: $color-grey-2;
+  margin-left: $space-atom * $xs;
+  display: flex;
+  align-items: center;
+
+  &--active {
+    border: solid $color-grey-6 1px;
+  }
+}

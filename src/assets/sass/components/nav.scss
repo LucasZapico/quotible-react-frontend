@@ -1,0 +1,119 @@
+.nav {
+  z-index: 3;
+  position: fixed;
+  background-color: $bg-pri;
+  top: 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  padding-left: $space-atom * $sm;
+  padding-right: $space-atom * $sm;
+
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  &__items {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__item {
+    cursor: pointer;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+
+  &__container {}
+
+  .mark {
+
+    // width: 20vw;
+    svg {
+      width: 50px;
+      height: 70px;
+    }
+  }
+
+}
+
+.pri-menu {
+  z-index: 3;
+  position: fixed;
+  top: 5rem;
+  left: 0px;
+  width: 100%;
+  background-color: $bg-sec;
+
+  ul {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+
+    li {
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+
+  a {
+    color: $color-light;
+  }
+}
+
+
+@media screen and (min-width: 100px) {
+
+  .pri-menu {
+    padding: .5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    &__mark {
+      padding: 1rem;
+      height: 200px
+    }
+  }
+}
+
+// 700px and up
+@media screen and (min-width: $media-small) {
+  .nav {
+    padding-left: $space-atom * $md;
+    padding-right: $space-atom * $md;
+  }
+
+  .pri-menu {
+    min-height: 40vh;
+    padding: $space-atom * $md;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+
+    &__mark {
+      padding: 1rem;
+      height: 400px
+    }
+  }
+}
+
+// 960px 
+@media screen and (min-width: $media-med) {}
+
+@media screen and (min-width: $media-large) {}
+
+@media screen and (min-width: $media-xlarge) {}
